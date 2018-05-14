@@ -6,7 +6,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEBUG = False
 
-if os.environ.get('DEBUG'):
+if not os.environ.get('PRODUCTION'):
     DEBUG = True
 
 if os.environ.get('PRODUCTION'):
