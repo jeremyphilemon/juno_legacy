@@ -11,7 +11,7 @@ class storyCLS(mixins.CreateModelMixin, generics.ListAPIView):
     serializer_class = storySerializer
 
     def get_queryset(self):
-        stories = Story.objects.all().order_by('pk')
+        stories = Story.objects.filter(archived=False).order_by('-date')
         search_query = self.request.GET.get("search")
         if search_query is not None:
             stories = stories.filter(Q(title__icontains=search_query) | Q(story__icontains=search_query)).distinct()
