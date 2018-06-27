@@ -1,6 +1,6 @@
-from django.utils import timezone
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 
 from rest_framework.reverse import reverse as api_reverse
 
@@ -15,4 +15,4 @@ class Changelog(models.Model):
         verbose_name_plural = 'Changelogs'
 
     def get_api_url(self, request=None):
-        return api_reverse("story-rud", kwargs={'pk': self.pk}, request=request)
+        return api_reverse("changelog-cls", kwargs={'pk': self.pk}, request=request)

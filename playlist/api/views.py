@@ -3,18 +3,18 @@ from django.db.models import Q
 from rest_framework import generics, mixins
 from rest_framework.permissions import IsAuthenticated
 
-from stats.api.serializers import changelogSerializer
-from stats.models import Changelog
+from playlist.api.serializers import playlistSerializer
+from playlist.models import Song
 
 
-class changelogCLS(mixins.CreateModelMixin, generics.ListAPIView):
+class playlistCLS(mixins.CreateModelMixin, generics.ListAPIView):
     lookup_field = 'pk'
-    serializer_class = changelogSerializer
+    serializer_class = playlistSerializer
     permission_classes = (IsAuthenticated, )
 
     def get_queryset(self):
-        changelogs = Changelog.objects.filter(archived=False).order_by('-date')
-        return changelogs
+        playlist = Song.objects.filter(archived=False).order_by('-date')
+        return playlist
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
