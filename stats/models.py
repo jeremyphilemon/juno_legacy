@@ -13,6 +13,3 @@ class Changelog(models.Model):
 
     class Meta(object):
         verbose_name_plural = 'Changelogs'
-
-    def get_api_url(self, request=None):
-        return api_reverse("changelog-cls", kwargs={'pk': self.pk}, request=request)
