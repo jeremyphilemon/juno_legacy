@@ -18,3 +18,15 @@ class playlistCLS(mixins.CreateModelMixin, generics.ListAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+
+
+class playlistRUD(generics.RetrieveUpdateDestroyAPIView):
+    lookup_field = 'pk'
+    serializer_class = playlistSerializer
+    permission_classes = (IsAuthenticated, )
+
+    def get_queryset(self):
+        return Song.objects.all()
+
+    def get_serializer_context(self, *args, **kwargs):
+        return {"request": self.request}

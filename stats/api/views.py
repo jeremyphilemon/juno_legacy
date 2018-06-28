@@ -10,7 +10,6 @@ from stats.models import Changelog
 class changelogCLS(mixins.CreateModelMixin, generics.ListAPIView):
     lookup_field = 'pk'
     serializer_class = changelogSerializer
-    permission_classes = (IsAuthenticated, )
 
     def get_queryset(self):
         changelogs = Changelog.objects.filter(archived=False).order_by('-date')

@@ -18,7 +18,7 @@ class Song(models.Model):
     archived = models.NullBooleanField(default=False)
 
     def get_api_url(self, request=None):
-        return api_reverse("story-rud", kwargs={'pk': self.pk}, request=request)
+        return api_reverse("playlist-rud", kwargs={'pk': self.pk}, request=request)
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
