@@ -15,6 +15,8 @@ class Song(models.Model):
     date = models.DateTimeField(default=timezone.now)
     location = models.CharField(max_length=500, blank=False, null=False)
     art = models.CharField(max_length=500, blank=False, null=False)
+    hearts = models.IntegerField(default=0)
+    plays = models.IntegerField(default=0)
     archived = models.NullBooleanField(default=False)
 
     def get_api_url(self, request=None):

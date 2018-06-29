@@ -8,7 +8,7 @@ class playlistSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Song
-        fields = ['url', 'pk', 'title', 'description', 'date', 'location', 'art', 'archived']
+        fields = ['url', 'pk', 'title', 'description', 'date', 'location', 'art', 'hearts', 'plays', 'archived']
         read_only_fields = ['url', 'pk']
 
     def get_url(self, obj):
