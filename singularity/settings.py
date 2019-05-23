@@ -14,7 +14,6 @@ if os.environ.get('PRODUCTION'):
     SECRET_KEY = os.environ.get('SECRET_KEY')
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-    PREPEND_WWW = True
 else:
     SECRET_KEY = '0a==!^b=ett@_@u8n_wuywzdxbj%m&t_@r7)s+vh+pvcj704ck'
 
