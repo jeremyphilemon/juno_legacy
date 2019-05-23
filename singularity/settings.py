@@ -5,6 +5,7 @@ SITE_ID = 1
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 if not os.environ.get('PRODUCTION'):
     DEBUG = True
@@ -16,7 +17,6 @@ if os.environ.get('PRODUCTION'):
     PREPEND_WWW = True
 else:
     SECRET_KEY = '0a==!^b=ett@_@u8n_wuywzdxbj%m&t_@r7)s+vh+pvcj704ck'
-    ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
