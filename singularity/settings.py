@@ -11,7 +11,6 @@ if not os.environ.get('PRODUCTION'):
 
 if os.environ.get('PRODUCTION'):
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    ALLOWED_HOSTS = ['*.anotherdude.me']
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     PREPEND_WWW = True
