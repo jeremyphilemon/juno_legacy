@@ -16,7 +16,7 @@
 				<li>
 					<a href="{{ x.pk }}"><b>{{ x.title }}</b></a>
 					<span class="date">{{ x.date }}</span>
-					{% if x.archived %}<span class="tag is-success">Tag label</span>{% endif %}
+					{% if x.archived %}<span class="tag is-success">Archived</span>{% endif %}
 				</li>
 			{% endfor %}
 		</ol>
