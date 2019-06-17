@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Juno - Fluff</title>
+		{% load static %}
+		<link href="{% static 'singularity.css' %}" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.1.1/trix.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.1.1/trix.js"></script>
+		<meta name="theme-color" content="#ffffff">
+	</head>
+	<body>
+		<a href="/fluff" style="margin-left: -3px;">[Go Back]</a> Story.
+		<p><b>{{ story.title }}</b> {{ story.date }}</p>
+		<div class="column">
+			<form method="post">
+				{% csrf_token %}
+				<input id="x" value="{{ story.story }}" type="hidden" name="content">
+				<trix-editor class="trix-content" input="x">
+				</trix-editor>
+				<input type="submit" class="save-button" href="save" value="Save"></input>
+			</div>
+		</body>
+	</html>
