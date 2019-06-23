@@ -6,7 +6,8 @@ def singularity(request):
 
 def fluff(request):
     stories = Story.objects.all()
-    return render(request, 'fluff.html', {'stories': stories})
+    if request.user.is_authenticated:
+        return render(request, 'fluff.html', {'stories': stories})
 
 def story(request, id):
     if request.method == 'POST' and request.POST:
