@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from blog.models import Story
+from django.contrib.auth.models import User
 
 def singularity(request):
     return render(request, 'singularity.html')
 
 def fluff(request):
-    stories = Story.objects.all()
-    return render(request, 'fluff.html', {'stories': stories})
+    if request.user.is_authenticated:
+        stories = Story.objects.all()
+        return render(request, 'fluff.html', {'stories': stories})
+    else:
+        return render(request, '404.html')
 
 def story(request, id):
     if request.method == 'POST' and request.POST:
@@ -19,6 +23,9 @@ def story(request, id):
             story = Story.objects.get(pk=id)
             return render(request, 'story.html', {'story': story})
     else:
-        story = Story.objects.get(pk=id)
-        return render(request, 'story.html', {'story': story})
+        if request.user.is_authenticated:
+            story = Story.objects.get(pk=id)
+            return render(request, 'story.html', {'story': story})
+        else:
+            return render(request, '404.html')
     
