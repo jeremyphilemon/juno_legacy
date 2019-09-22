@@ -12,7 +12,6 @@ urlpatterns = [
     path('api/', include('rest_framework.urls')),
     path('api/stories/', include('blog.api.urls')),
     path('api/stats/', include('stats.api.urls')),
-    path('api/playlist/', include('playlist.api.urls')),
     path('api/auth-token/', authView.obtain_auth_token),
     path('admin/', admin.site.urls),
 ]
